@@ -1,0 +1,28 @@
+.PhotoApp {
+  text-align: center;
+}
+
+.PhotoApp-logo {
+  animation: PhotoApp-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.PhotoApp-header {
+  background-color: #222;
+  height: 160px;
+  padding: 20px;
+  color: white;
+}
+
+.PhotoApp-title {
+  font-size: 1.3em;
+}
+
+.PhotoApp-intro {
+  font-size: large;
+}
+
+@keyframes PhotoApp-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
