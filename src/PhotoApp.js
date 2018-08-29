@@ -28,9 +28,11 @@ class PhotoApp extends Component {
           PhotoApp fetches photos from a public accessible API and renders on the page</h4>
         </header>
         <p className="PhotoApp-intro">
-          
+          List of Photos
         </p>
+        
         <PhotoList></PhotoList>  
+        
       </div>
     );
   }
@@ -62,17 +64,22 @@ class PhotoList extends React.Component{
   render ()
   {
     return (
+      //React recommends each item on a given array to have an unique id
+      //Reason why key is being provided for each element
+      //since there is code involved on this return for the render() function
+      //It must return value on each line. But there is a way to return a list of html elements
+      //by simply returning an array of html elements
+      //From React v.16.2 they introduced React.Fragment making the code cleaner :)
       this.state.listOfPhotos.map(function(item) { 
-        return ([
-          //React recommends each item on a given array to have an unique id
-          //Reason why key is being provided for each element
-          <img key={1} src={item.thumbnailUrl} alt={item.title}/>,
-          //since there is code involved on this return for the render() function
-          //It must return value on each line. But there is a way to return a list of html elements
-          //by simply returning an array of html elements
-          <div key={2}>{item.title}</div>,
-          <hr key={3}/>
-        ]);
+        return (
+          <React.Fragment key={item.id}>
+            <div className="PhotoApp-item">
+              <img src={item.thumbnailUrl} alt={item.title}/>
+              <div>{item.title}</div>
+            </div>
+          </React.Fragment>
+          
+        );
       })
     )
   }
