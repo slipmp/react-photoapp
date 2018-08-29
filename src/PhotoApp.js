@@ -15,6 +15,7 @@ such as having Local state, a feature available only to classes.
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './PhotoApp.css';
+import axios from 'axios'
 
 class PhotoApp extends Component {
   render() {
@@ -37,6 +38,14 @@ class PhotoApp extends Component {
 
 function PhotoList(props)
 {
+  function DisplayPhotos(response){
+    console.log(response)
+  }
+
+  //Go and featch a few photos belonging to the album 1 using axios
+  axios.get('https://jsonplaceholder.typicode.com/photos?albumId=1')
+  .then(response => DisplayPhotos(response));
+  
   return "Hello";
 }
 
