@@ -44,6 +44,8 @@ class PhotoList extends React.Component{
       testMessage:'Hello world',
       listOfPhotos: []
     }
+    //Lesson Learned: Tried to insert this function inside render()
+    //But the setState function calls render() causing an infinite loop,
     this.fetchPhotos();
   }
   
@@ -61,7 +63,16 @@ class PhotoList extends React.Component{
   {
     return (
       this.state.listOfPhotos.map(function(item) { 
-        return <div key={item.id}>{item.title}</div>
+        return ([
+          //React recommends each item on a given array to have an unique id
+          //Reason why key is being provided for each element
+          <img key={1} src={item.thumbnailUrl} alt={item.title}/>,
+          //since there is code involved on this return for the render() function
+          //It must return value on each line. But there is a way to return a list of html elements
+          //by simply returning an array of html elements
+          <div key={2}>{item.title}</div>,
+          <hr key={3}/>
+        ]);
       })
     )
   }
