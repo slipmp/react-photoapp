@@ -29,9 +29,15 @@ class PhotoApp extends Component {
           My first React Application to understand the basics. <br />
           PhotoApp fetches photos from a public accessible API and renders on the page
         </p>
+        <PhotoList></PhotoList>
       </div>
     );
   }
+}
+
+function PhotoList(props)
+{
+  return "Hello";
 }
 
 export default PhotoApp;
