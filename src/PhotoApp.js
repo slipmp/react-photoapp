@@ -43,7 +43,6 @@ class PhotoList extends React.Component{
   {
     super()
     this.state={
-      testMessage:'Hello world',
       listOfPhotos: []
     }
     //Lesson Learned: Tried to insert this function inside render()
