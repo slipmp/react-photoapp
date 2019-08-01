@@ -24,7 +24,6 @@ const PhotoApp = () =>  {
   //Go and featch a few photos belonging to the album 1 using axios
   useEffect(() => {
     async function fetchData() {
-      // You can await here
       const result = await axios(
         'https://jsonplaceholder.typicode.com/photos?albumId=1',
       );
